@@ -31,7 +31,7 @@ const Story = () => {
         {/* History */}
         <div className="grid md:grid-cols-5 gap-8 lg:gap-12 items-center">
           <div className="md:col-span-3">
-            <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="bg-card rounded-xl p-8 shadow-lg">
               <h3 className="font-playfair text-2xl font-bold text-redwood-800 mb-4">
                 A Brief History
               </h3>

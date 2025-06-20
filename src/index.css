@@ -6,13 +6,13 @@
 
 @layer base {
   :root {
-    --background: 252 249 244; /* cream-100 */
+    --background: 250 248 247; /* redwood-50 */
     --foreground: 71 46 42; /* redwood-900 */
 
-    --card: 254 253 251; /* cream-50 */
+    --card: 250 248 247; /* redwood-50 */
     --card-foreground: 71 46 42; /* redwood-900 */
 
-    --popover: 254 253 251; /* cream-50 */
+    --popover: 250 248 247; /* redwood-50 */
     --popover-foreground: 71 46 42; /* redwood-900 */
 
     --primary: 140 96 86; /* redwood-500 */
@@ -36,7 +36,7 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 254 253 251; /* cream-50 */
+    --sidebar-background: 250 248 247; /* redwood-50 */
     --sidebar-foreground: 95 111 71; /* sage-600 */
     --sidebar-primary: 140 96 86; /* redwood-500 */
     --sidebar-primary-foreground: 254 253 251; /* cream-50 */

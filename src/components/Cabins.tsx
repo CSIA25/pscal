@@ -17,7 +17,7 @@ const Cabins = () => {
         </div>
 
         {/* Featured Ranch House */}
-        <Card className="bg-white overflow-hidden shadow-xl mb-16 transition-shadow duration-300 md:flex">
+        <Card className="bg-card overflow-hidden shadow-xl mb-16 transition-shadow duration-300 md:flex">
           <div
             className="md:w-1/2 h-64 md:h-auto bg-cover bg-center"
             style={{ backgroundImage: `url('https://i.ibb.co/xSzTVfCS/image.png')` }}

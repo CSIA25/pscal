@@ -128,7 +128,7 @@ const Yosemite = () => {
           </h3>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {attractions.map((attraction, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="bg-card hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4">{attraction.icon}</div>
                   <h4 className="font-playfair text-xl font-bold text-redwood-800 mb-2">

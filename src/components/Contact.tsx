@@ -45,7 +45,7 @@ const Contact = () => {
           <div>
             <div className="grid gap-6 mb-8">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="bg-white shadow-lg">
+                <Card key={index} className="bg-card shadow-lg">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <span className="text-2xl mr-4">{info.icon}</span>
@@ -64,7 +64,7 @@ const Contact = () => {
             </div>
 
             {/* Hours */}
-            <Card className="bg-white shadow-lg">
+            <Card className="bg-card shadow-lg">
               <CardHeader>
                 <CardTitle className="font-playfair text-xl text-redwood-800 flex items-center">
                   <span className="text-2xl mr-3">⏰</span>
@@ -95,7 +95,7 @@ const Contact = () => {
 
           {/* Google Map Embed */}
           <div className="flex flex-col gap-4">
-            <Card className="bg-white shadow-lg overflow-hidden h-full">
+            <Card className="bg-card shadow-lg overflow-hidden h-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.834166258079!2d-120.2752064!3d37.8138369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8090d65b511ae74f%3A0x1c667141a95e167f!2sPriest%20Station%20Caf%C3%A9!5e0!3m2!1sen!2sus!4v1714500000000!5m2!1sen!2sus"
                 width="100%"
