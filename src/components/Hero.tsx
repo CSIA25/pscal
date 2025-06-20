@@ -40,7 +40,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-cream-50 text-cream-50 hover:bg-cream-50 hover:text-black-700 px-8 py-4 text-lg font-medium transition-all duration-300 transform hover:scale-105"
+              className="border-2 border-cream-50 text-black hover:bg-cream-50 hover:text-redwood-700 px-8 py-4 text-lg font-medium transition-all duration-300 transform hover:scale-105"
               onClick={() => document.getElementById('cabins')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Stay With Us
