@@ -120,8 +120,8 @@ const Menu = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                 activeCategory === category
-                  ? 'bg-redwood-500 text-cream-50 shadow-lg'
-                  : 'bg-white text-redwood-600 hover:bg-redwood-50 shadow-md'
+                  ? 'bg-redwood-500 text-cream-50 shadow-lg border border-transparent'
+                  : 'bg-white text-redwood-600 hover:bg-redwood-50 shadow-md border border-redwood-500'
               }`}
             >
               {menuCategories[category].title.replace('_', ' & ')}
@@ -142,7 +142,7 @@ const Menu = () => {
 
           <div className="grid gap-6 md:grid-cols-2">
             {menuCategories[activeCategory].items.map((item, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300 border-redwood-200">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-playfair text-xl font-semibold text-redwood-800 pr-2">

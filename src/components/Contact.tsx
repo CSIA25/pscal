@@ -143,7 +143,6 @@ const Contact = () => {
           <div className="text-center mt-8">
             <Button 
               variant="outline"
-              className="border-redwood-500 text-redwood-600 hover:text-red-900"
               onClick={() => {
                 window.open('https://instagram.com/priest.station.cafe/', '_blank');
               }}
