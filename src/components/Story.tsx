@@ -20,7 +20,7 @@ const Story = () => {
         <div className="bg-cream-100 rounded-2xl p-8 md:p-12 mb-16 shadow-lg">
           <blockquote className="text-center">
             <p className="font-playfair text-2xl md:text-3xl text-redwood-700 italic mb-6 leading-relaxed">
-              "Mouthwateringly Great."
+              "Mouthwateringly Great!"
             </p>
             <cite className="text-redwood-500 font-medium">
               — The San Francisco Chronicle
@@ -31,7 +31,7 @@ const Story = () => {
         {/* History */}
         <div className="grid md:grid-cols-5 gap-8 lg:gap-12 items-center">
           <div className="md:col-span-3">
-            <div className="bg-card rounded-xl p-8 shadow-lg">
+            <div className="bg-white rounded-xl p-8 shadow-lg">
               <h3 className="font-playfair text-2xl font-bold text-redwood-800 mb-4">
                 A Brief History
               </h3>
