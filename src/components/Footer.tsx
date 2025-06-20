@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin } from 'lucide-react';
 
@@ -32,11 +31,14 @@ const Footer = () => {
               Quick Links
             </h3>
             <div className="space-y-2">
+              <a href="#menu" className="block text-cream-200 hover:text-cream-50 transition-colors duration-200">
+                Menu
+              </a>
               <a href="#story" className="block text-cream-200 hover:text-cream-50 transition-colors duration-200">
                 Our Story
               </a>
-              <a href="#menu" className="block text-cream-200 hover:text-cream-50 transition-colors duration-200">
-                Menu
+              <a href="#reviews" className="block text-cream-200 hover:text-cream-50 transition-colors duration-200">
+                Guest Reviews
               </a>
               <a href="#cabins" className="block text-cream-200 hover:text-cream-50 transition-colors duration-200">
                 Cabin Stays

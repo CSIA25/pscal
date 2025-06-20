@@ -13,8 +13,9 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Our Story', href: '#story' },
     { name: 'Menu', href: '#menu' },
+    { name: 'Our Story', href: '#story' },
+    { name: 'Reviews', href: '#reviews' },
     { name: 'Cabins', href: '#cabins' },
     { name: 'Yosemite', href: '#yosemite' },
     { name: 'Contact', href: '#contact' }
@@ -64,7 +65,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-64 pb-4' : 'max-h-0'
+          isMobileMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
         }`}>
           <div className="flex flex-col space-y-3 pt-4 border-t border-sage-200">
             {navItems.map((item) => (

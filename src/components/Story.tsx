@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, Variants } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
 
 // --- CHAPTER DATA (No changes needed) ---
 const storyChapters = [
@@ -29,64 +30,108 @@ const storyChapters = [
   }
 ];
 
+// --- TESTIMONIALS DATA ---
+const testimonials = [
+  {
+    quote: "Mouthwateringly Great!",
+    source: "The San Francisco Chronicle",
+  },
+  {
+    quote: "A Yosemite institution... the view makes this stop one-of-a-kind.",
+    source: "The Washington Post",
+  },
+  {
+    quote: "Offers sweeping views of the surrounding foothills... we ate hearty breakfast burritos.",
+    source: "Los Angeles Times",
+  },
+  {
+    quote: "A recommended stop on State Route 120 if you are coming in from San Francisco.",
+    source: "Conrad Anker, Outside Online",
+  },
+];
+
 // --- Reusable Chapter Component ---
-// This component encapsulates the entire visual structure for one chapter.
 const Chapter = ({ year, title, text, imageUrl, index }) => {
-  const ref = useRef(null);
+  const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'] // Animate while the component is in view
+    offset: ["start end", "end start"],
   });
 
-  // Parallax effect for the background image
-  const y = useTransform(scrollYProgress, [0, 1], ['-20%', '10%']);
-
-  // Determines alignment for desktop
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
   const isOdd = index % 2 !== 0;
 
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { 
+        duration: 0.7, 
+        ease: "easeOut", 
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
+      }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
-    <motion.div
-      ref={ref}
-      className="relative h-[80vh] md:h-screen w-full flex items-center justify-center overflow-hidden"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      {/* Background Image with Parallax */}
+    <div ref={ref} className="relative h-[80vh] md:h-screen w-full flex items-center justify-center overflow-hidden">
       <motion.div
         className="absolute inset-0 z-0"
         style={{ y }}
+        initial={{ scale: 1.1, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }}
       >
         <div
           className="h-full w-full bg-cover bg-center"
           style={{ backgroundImage: `url(${imageUrl})` }}
         />
-        <div className="absolute inset-0 bg-black/50" /> {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
-      {/* Content Card */}
       <div className={`relative z-10 w-11/12 md:w-full max-w-xl px-4 md:px-0 flex ${isOdd ? 'md:justify-start' : 'md:justify-end'}`}>
-         <div className="bg-cream-50/90 backdrop-blur-sm text-redwood-900 p-8 md:p-12 rounded-xl shadow-2xl w-full md:w-10/12">
-            <p className="font-playfair text-2xl text-redwood-600 mb-2">{year}</p>
-            <h3 className="font-playfair text-4xl md:text-5xl font-bold leading-tight mb-4">
-                {title}
-            </h3>
-            <p className="text-lg text-redwood-800 leading-relaxed">
-                {text}
-            </p>
-         </div>
+         <motion.div 
+            className="bg-cream-50/90 backdrop-blur-sm text-redwood-900 p-8 md:p-12 rounded-xl shadow-2xl w-full md:w-10/12"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+         >
+            <motion.p variants={itemVariants} className="font-playfair text-2xl text-redwood-600 mb-2">{year}</motion.p>
+            <motion.h3 variants={itemVariants} className="font-playfair text-4xl md:text-5xl font-bold leading-tight mb-4">{title}</motion.h3>
+            <motion.p variants={itemVariants} className="text-lg text-redwood-800 leading-relaxed">{text}</motion.p>
+         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 // --- Main Story Component ---
 const Story = () => {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  };
+
   return (
-    <section id="story" className="bg-redwood-900 text-cream-50"> {/* A dark base for a cinematic feel */}
+    <section id="story" className="bg-redwood-900 text-cream-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-        {/* --- INTRO SECTION --- */}
         <div className="text-center mb-16 md:mb-24">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -109,29 +154,38 @@ const Story = () => {
         </div>
       </div>
 
-      {/* --- TIMELINE --- */}
-      {/* We no longer need a complex container, we just map the chapters */}
       <div className="relative">
           {storyChapters.map((chapter, index) => (
             <Chapter key={chapter.year} {...chapter} index={index} />
           ))}
       </div>
 
-      {/* --- QUOTE / OUTRO SECTION --- */}
-      <div className="bg-cream-50"> {/* Switch back to a light theme to transition out */}
+      <div className="bg-cream-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-cream-100 rounded-2xl p-8 md:p-12 shadow-xl">
-              <blockquote className="text-center">
-                <p className="font-playfair text-2xl md:text-3xl text-redwood-700 italic mb-6 leading-relaxed">
-                  "Mouthwateringly Great!"
-                </p>
-                <cite className="text-redwood-500 font-medium not-italic">
-                  — The San Francisco Chronicle
-                </cite>
-              </blockquote>
-            </div>
-          </div>
+          <motion.div
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="bg-cream-100 rounded-2xl p-8 shadow-xl h-full">
+                  <CardContent className="flex flex-col justify-center text-center h-full p-0">
+                    <blockquote className="flex flex-col justify-center h-full">
+                      <p className="font-playfair text-xl md:text-2xl text-redwood-700 italic mb-6 leading-relaxed flex-grow">
+                        "{testimonial.quote}"
+                      </p>
+                      <cite className="text-redwood-500 font-medium not-italic">
+                        — {testimonial.source}
+                      </cite>
+                    </blockquote>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

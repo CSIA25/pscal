@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { motion, Variants } from 'framer-motion';
 
-const Menu = () => {
+const Menu = forwardRef<HTMLElement>((props, ref) => {
   const [activeCategory, setActiveCategory] = useState('breakfast');
 
   const menuCategories = {
@@ -99,30 +100,58 @@ const Menu = () => {
 
   const categories = Object.keys(menuCategories);
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <section id="menu" className="py-20 bg-gradient-to-b from-sage-50 to-sage-200">
+    <section id="menu" ref={ref} className="py-20 bg-gradient-to-b from-sage-50 to-sage-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-redwood-800 mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7 }}
+            className="font-playfair text-4xl md:text-5xl font-bold text-redwood-800 mb-6">
             Our Menu
-          </h2>
-          <p className="text-xl text-redwood-600 max-w-3xl mx-auto leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-xl text-redwood-600 max-w-3xl mx-auto leading-relaxed">
             Comfort food with a Sierra flair, crafted from locally sourced ingredients 
             and time-tested family recipes.
-          </p>
+          </motion.p>
         </div>
 
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center mb-12 gap-2">
           {categories.map((category) => (
             <button
-              key={category}
+              key={category} 
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
-                activeCategory === category
-                  ? 'bg-redwood-500 text-cream-50 shadow-lg border border-transparent'
-                  : 'bg-card text-redwood-600 hover:bg-redwood-50 shadow-md border border-redwood-500'
-              }`}
+              className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${activeCategory === category ? 'bg-redwood-500 text-cream-50 shadow-lg border border-transparent' : 'bg-card text-redwood-600 hover:bg-redwood-50 shadow-md border border-redwood-500'}`}
             >
               {menuCategories[category].title.replace('_', ' & ')}
             </button>
@@ -140,29 +169,38 @@ const Menu = () => {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <motion.div
+            key={activeCategory} // Re-triggers animation on category change
+            className="grid gap-6 md:grid-cols-2"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {menuCategories[activeCategory].items.map((item, index) => (
-              <Card key={index} className="bg-card hover:shadow-lg transition-shadow duration-300 border-redwood-100">
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="font-playfair text-xl font-semibold text-redwood-800 pr-2">
-                      {item.name}
-                    </h4>
-                    {item.price && (
-                      <span className="font-bold text-redwood-500 text-lg ml-4 flex-shrink-0">
-                        {item.price}
-                      </span>
+              <motion.div key={item.name} variants={itemVariants}>
+                <Card className="bg-card hover:shadow-lg transition-shadow duration-300 border-redwood-100 h-full">
+                  <CardContent className="p-6 flex flex-col h-full">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-playfair text-xl font-semibold text-redwood-800 pr-2">
+                        {item.name}
+                      </h4>
+                      {item.price && (
+                        <span className="font-bold text-redwood-500 text-lg ml-4 flex-shrink-0">
+                          {item.price}
+                        </span>
+                      )}
+                    </div>
+                    {item.description && (
+                      <p className="text-redwood-600 leading-relaxed text-sm flex-grow">
+                        {item.description}
+                      </p>
                     )}
-                  </div>
-                  {item.description && (
-                    <p className="text-redwood-600 leading-relaxed text-sm">
-                      {item.description}
-                    </p>
-                  )}
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
         
         <div className="text-center mt-12">
@@ -173,6 +211,6 @@ const Menu = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Menu;
