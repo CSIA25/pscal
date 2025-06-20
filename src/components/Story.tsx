@@ -226,7 +226,7 @@ const Story = () => {
         ))}
       </div>
 
-      <div className="bg-cream-50">
+      <div id="reviews" className="bg-cream-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <motion.div
             className="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-4"
