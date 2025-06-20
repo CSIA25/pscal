@@ -3,7 +3,6 @@ import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Story from '@/components/Story';
 import Menu from '@/components/Menu';
-import Reviews from '@/components/Reviews';
 import Cabins from '@/components/Cabins';
 import Yosemite from '@/components/Yosemite';
 import Contact from '@/components/Contact';
@@ -77,7 +76,6 @@ const Index = () => {
       <Hero />
       <Menu ref={menuSectionRef} />
       <Story />
-      <Reviews />
       <Cabins />
       <Yosemite />
       <Contact />
