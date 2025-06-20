@@ -100,7 +100,7 @@ const Menu = () => {
   const categories = Object.keys(menuCategories);
 
   return (
-    <section id="menu" className="py-20 bg-cream-50">
+    <section id="menu" className="py-20 bg-gradient-to-b from-sage-50 to-sage-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-redwood-800 mb-6">

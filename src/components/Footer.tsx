@@ -4,7 +4,7 @@ import { MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-redwood-800 text-cream-50">
+    <footer className="bg-redwood-900 text-cream-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Logo and Description */}
@@ -65,7 +65,7 @@ const Footer = () => {
 
         <div className="border-t border-redwood-700 mt-8 pt-8 text-center">
           <p className="text-cream-200">
-            © 2024 Priest Station Cafe. All rights reserved. | A family legacy since 1853
+            © 2025 Priest Station Cafe. All rights reserved. | A family legacy since 1853
           </p>
         </div>
       </div>

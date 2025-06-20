@@ -5,7 +5,7 @@ import { BedDouble, Users, Bath, Star } from 'lucide-react';
 
 const Cabins = () => {
   return (
-    <section id="cabins" className="py-20 bg-sage-50">
+    <section id="cabins" className="py-20 bg-gradient-to-b from-sage-200 to-cream-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-redwood-800 mb-6">
