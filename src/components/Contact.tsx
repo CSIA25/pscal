@@ -7,7 +7,7 @@ const Contact = () => {
   const contactInfo = [
     {
       title: 'Location',
-      content: '31757 Highway 120\nGroveland, CA 95321',
+      content: '16756 Old Priest Grade\nBig Oak Flat, CA 95305',
       icon: '📍'
     },
     {
@@ -22,11 +22,9 @@ const Contact = () => {
     }
   ];
 
- const hours = [
-    { day: 'Breakfast (Fri-Sun)', time: '8:00 AM - 11:00 AM' },
-    { day: 'Lunch (Mon-Sat)', time: '11:00 AM - 3:00 PM' },
-    { day: 'Brunch (Sun)', time: '11:00 AM - 2:00 PM' },
-    { day: 'Dinner (Fri-Sun)', time: '5:00 PM - 8:00 PM' },
+  const hours = [
+    { day: 'Breakfast', time: '8:00 AM - 11:00 AM' },
+    { day: 'Lunch & Dinner', time: '11:00 AM - 8:00 PM' },
   ];
 
   return (
@@ -127,21 +125,27 @@ const Contact = () => {
             Stories from the Road
           </h3>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div 
-                key={item}
-                className="aspect-square bg-sage-100 rounded-lg flex items-center justify-center hover:bg-sage-200 transition-colors duration-300 cursor-pointer"
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((imageNumber) => (
+              <a
+                key={imageNumber}
+                href="https://instagram.com/priest.station.cafe/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aspect-square block rounded-lg overflow-hidden group shadow-lg"
               >
-                <span className="text-sage-500 text-2xl">📸</span>
-              </div>
+                <div
+                  className="w-full h-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                  style={{ backgroundImage: `url('/${imageNumber}.jpg')` }}
+                />
+              </a>
             ))}
           </div>
           <div className="text-center mt-8">
             <Button 
               variant="outline"
-              className="border-redwood-500 text-redwood-600 hover:bg-redwood-50"
+              className="border-redwood-500 text-redwood-600 hover:text-red-900"
               onClick={() => {
-                window.open('https://www.instagram.com/priest.station.cafe/', '_blank');
+                window.open('https://instagram.com/priest.station.cafe/', '_blank');
               }}
             >
               Follow @priest.station.cafe

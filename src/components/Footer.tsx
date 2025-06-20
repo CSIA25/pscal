@@ -56,7 +56,7 @@ const Footer = () => {
               Visit Us
             </h3>
             <div className="space-y-2 text-cream-200">
-              <p>31757 Highway 120<br />Groveland, CA 95321</p>
+              <p>16756 Old Priest Grade<br />Big Oak Flat, CA 95305</p>
               <p>(209) 962-7825</p>
               <p>info@prieststation.com</p>
             </div>

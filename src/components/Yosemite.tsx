@@ -30,7 +30,7 @@ const Yosemite = () => {
     },
     {
       name: 'Tuolumne Meadows',
-      distance: '30 minutes',
+      distance: '1.5 hours',
       description: 'Alpine meadows and pristine wilderness (seasonal)',
       icon: '🌸'
     },
@@ -51,22 +51,22 @@ const Yosemite = () => {
 
   const galleryImages = [
     {
-      src: 'https://images.unsplash.com/photo-1518991669955-4c73a84a6204?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'https://images.unsplash.com/photo-1605592743932-83d35eec3482?w=500&auto=format&fit=crop&q=60',
       alt: 'Yosemite Valley with El Capitan and Bridalveil Fall',
       label: 'Yosemite Valley'
     },
     {
-      src: 'https://images.unsplash.com/photo-1543599468-0752a1b1875c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'https://plus.unsplash.com/premium_photo-1688429242358-4f820b208894?w=500&auto=format&fit=crop&q=60',
       alt: 'Majestic Yosemite Falls',
       label: 'Waterfalls'
     },
     {
-      src: 'https://images.unsplash.com/photo-1616012439542-7801b635359a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'https://images.unsplash.com/photo-1712473784315-e7ef4403c23e?w=500&auto=format&fit=crop&q=60',
       alt: 'Giant Sequoia trees in Mariposa Grove',
       label: 'Giant Sequoias'
     },
     {
-      src: 'https://images.unsplash.com/photo-1532983321943-8e4a95a41c24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'https://plus.unsplash.com/premium_photo-1745696026943-668197de67ef?w=500&auto=format&fit=crop&q=60',
       alt: 'Scenic drive on Tioga Road in Yosemite',
       label: 'High Country'
     }
