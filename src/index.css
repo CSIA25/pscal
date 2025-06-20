@@ -1,0 +1,130 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 252 249 244; /* cream-100 */
+    --foreground: 71 46 42; /* redwood-900 */
+
+    --card: 254 253 251; /* cream-50 */
+    --card-foreground: 71 46 42; /* redwood-900 */
+
+    --popover: 254 253 251; /* cream-50 */
+    --popover-foreground: 71 46 42; /* redwood-900 */
+
+    --primary: 140 96 86; /* redwood-500 */
+    --primary-foreground: 254 253 251; /* cream-50 */
+
+    --secondary: 246 247 244; /* sage-50 */
+    --secondary-foreground: 75 85 58; /* sage-700 */
+
+    --muted: 234 238 227; /* sage-100 */
+    --muted-foreground: 120 138 93; /* sage-500 */
+
+    --accent: 248 241 230; /* cream-200 */
+    --accent-foreground: 140 96 86; /* redwood-500 */
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 254 253 251; /* cream-50 */
+
+    --border: 213 220 200; /* sage-200 */
+    --input: 213 220 200; /* sage-200 */
+    --ring: 140 96 86; /* redwood-500 */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 254 253 251; /* cream-50 */
+    --sidebar-foreground: 95 111 71; /* sage-600 */
+    --sidebar-primary: 140 96 86; /* redwood-500 */
+    --sidebar-primary-foreground: 254 253 251; /* cream-50 */
+    --sidebar-accent: 246 247 244; /* sage-50 */
+    --sidebar-accent-foreground: 75 85 58; /* sage-700 */
+    --sidebar-border: 213 220 200; /* sage-200 */
+    --sidebar-ring: 140 96 86; /* redwood-500 */
+  }
+
+  .dark {
+    --background: 54 54 50; /* Dark sage */
+    --foreground: 254 253 251; /* cream-50 */
+
+    --card: 62 69 71; /* Dark sage-800 */
+    --card-foreground: 254 253 251; /* cream-50 */
+
+    --popover: 62 69 71; /* Dark sage-800 */
+    --popover-foreground: 254 253 251; /* cream-50 */
+
+    --primary: 140 96 86; /* redwood-500 */
+    --primary-foreground: 254 253 251; /* cream-50 */
+
+    --secondary: 75 85 58; /* sage-700 */
+    --secondary-foreground: 246 247 244; /* sage-50 */
+
+    --muted: 75 85 58; /* sage-700 */
+    --muted-foreground: 183 196 163; /* sage-300 */
+
+    --accent: 95 111 71; /* sage-600 */
+    --accent-foreground: 254 253 251; /* cream-50 */
+
+    --destructive: 220 38 38;
+    --destructive-foreground: 254 253 251; /* cream-50 */
+
+    --border: 75 85 58; /* sage-700 */
+    --input: 75 85 58; /* sage-700 */
+    --ring: 140 96 86; /* redwood-500 */
+
+    --sidebar-background: 54 70 45; /* Dark sage */
+    --sidebar-foreground: 246 247 244; /* sage-50 */
+    --sidebar-primary: 140 96 86; /* redwood-500 */
+    --sidebar-primary-foreground: 254 253 251; /* cream-50 */
+    --sidebar-accent: 62 69 71; /* Dark sage-800 */
+    --sidebar-accent-foreground: 246 247 244; /* sage-50 */
+    --sidebar-border: 75 85 58; /* sage-700 */
+    --sidebar-ring: 140 96 86; /* redwood-500 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+/* Custom scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom parallax container */
+.parallax-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  perspective: 1px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.parallax-layer--base {
+  transform: translateZ(0);
+}
+
+.parallax-layer--back {
+  transform: translateZ(-1px) scale(2);
+}
