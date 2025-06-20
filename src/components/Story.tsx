@@ -49,7 +49,7 @@ const testimonials = [
   },
   {
     quote: "A recommended stop on State Route 120 if you are coming in from San Francisco.",
-    source: "Conrad Anker, Outside Online",
+    source: "Conrad Anker, Mountaineer",
     colorClass: "bg-sage-100"
   },
 ];
